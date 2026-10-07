@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="青青电影网，专注青春题材电影的赏析与片单推荐：校园、成长、初恋、友情、毕业与远方。提供高分青春片单、经典台词、类型分类与正版观影渠道指引。">
+<meta name="keywords" content="青青电影网, 青春电影, 青春片, 校园电影, 成长电影, 初恋电影, 毕业季, 电影赏析, 高分片单">
+<meta name="author" content="青青电影网">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>青青电影网 - 青春电影赏析 · 高分片单 · 经典台词与成长解读</title>
+<style>
+/* ==========================================================
+   青青电影网  单页响应式网站
+   视觉基调：青草绿 + 柠檬黄 + 天蓝（青春 / 校园 / 胶片感）
+   6 套差异化 DOM 模板，CSS/JS 全部内联，标签闭合
+   ========================================================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#f4fbf6;
+  --paper2:#e6f4ea;
+  --ink:#1d2b23;
+  --ink2:#365040;
+  --dim:#7f9789;
+  --mute:#b3c4ba;
+  --green:#2f9e5b;     /* 青草绿 */
+  --green2:#1f7a43;
+  --teal:#159a8a;      /* 青 */
+  --blue:#3a86c8;      /* 天蓝 */
+  --lime:#d8d83a;      /* 柠檬黄 */
+  --line:rgba(47,158,91,.16);
+  --line2:rgba(47,158,91,.36);
+  --mx:1180px;
+  --r:22px;
+  --grad:linear-gradient(120deg,var(--green),var(--teal));
+  --serif:"Songti SC","STSong","SimSun","Noto Serif SC",Georgia,serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.85;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(640px 300px at 92% 3%,rgba(47,158,91,.12),transparent 60%),
+    radial-gradient(560px 280px at 5% 97%,rgba(58,134,200,.10),transparent 62%);
+  background-attachment:fixed;
+}
+a{color:inherit;text-decoration:none;transition:.26s}
+img,svg{max-width:100%;display:block}
+ul{list-style:none}
+button{font-family:inherit}
+::selection{background:var(--green);color:#fff}
+
+.wrap{max-width:var(--mx);margin:0 auto;padding:0 26px}
+section{padding:84px 0;position:relative}
+.eyebrow{font-size:11px;letter-spacing:4px;color:var(--green2);font-weight:800;text-transform:uppercase;font-family:var(--serif)}
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:38px;padding-bottom:12px;border-bottom:2px dashed var(--line2)}
+.sec-t{font-family:var(--serif);font-size:30px;font-weight:950;letter-spacing:1px;line-height:1.25}
+.sec-t small{display:block;font-family:inherit;font-size:12px;color:var(--dim);font-weight:600;letter-spacing:3px;margin-top:7px}
+.more{font-size:13px;font-weight:800;color:var(--ink2);border-bottom:2px solid var(--green);padding-bottom:2px}
+.more:hover{color:var(--green)}
+
+/* ---------- Header ---------- */
+.hd{position:sticky;top:0;z-index:100;background:rgba(244,251,246,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.hd-in{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:950;font-size:25px;letter-spacing:1px;color:var(--ink)}
+.logo .mk{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:12px 50% 12px 50%;background:var(--grad);color:#fff;font-size:18px;font-weight:950;box-shadow:0 8px 18px rgba(47,158,91,.34);transform:rotate(-8deg)}
+.logo em{font-style:normal;color:var(--green2);font-size:14px;font-weight:700;letter-spacing:2px;font-family:inherit}
+.nav{display:flex;gap:2px}
+.nav a{font-size:14px;padding:9px 15px;border-radius:12px;color:var(--ink2);font-weight:650}
+.nav a:hover{background:rgba(47,158,91,.13);color:var(--green2)}
+.nav a.on{color:#fff;background:var(--grad);font-weight:800}
+.mbtn{display:none;width:46px;height:46px;border:1px solid var(--line2);border-radius:12px;background:var(--paper2);color:var(--ink);font-size:20px;cursor:pointer}
+
+/* ---------- Hero ---------- */
+.hero{padding:72px 0 30px}
+.hero .wrap{display:grid;grid-template-columns:1fr .9fr;gap:56px;align-items:center}
+.hero h1{font-family:var(--serif);font-size:clamp(38px,6vw,64px);line-height:1.14;font-weight:950;letter-spacing:-.6px;margin:12px 0 22px}
+.hero h1 i{font-style:normal;color:var(--green2);position:relative;display:inline-block}
+.hero h1 i::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:12px;background:var(--lime);z-index:-1;opacity:.55}
+.hero .lede{font-size:16.5px;color:var(--ink2);max-width:540px;margin-bottom:26px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:26px}
+.stat{background:var(--paper);padding:18px 12px;text-align:center}
+.stat b{display:block;font-family:var(--serif);font-size:27px;font-weight:950;color:var(--green2)}
+.stat span{font-size:11px;color:var(--dim);letter-spacing:1px}
+.acts{display:flex;gap:14px;flex-wrap:wrap}
+.b{padding:14px 32px;border-radius:34px;font-size:15px;font-weight:850;cursor:pointer;border:0;transition:.26s;letter-spacing:.5px}
+.b-p{background:var(--grad);color:#fff;box-shadow:0 12px 28px rgba(47,158,91,.34)}
+.b-p:hover{transform:translateY(-2px)}
+.b-g{border:2px solid var(--ink);color:var(--ink);background:transparent}
+.b-g:hover{background:var(--ink);color:var(--paper)}
+.kw{display:flex;gap:9px;flex-wrap:wrap;margin-top:26px}
+.kw a{font-size:12px;color:var(--ink2);border:1px solid var(--line2);background:var(--paper2);padding:6px 14px;border-radius:22px}
+.kw a:hover{color:#fff;border-color:transparent;background:var(--grad);transform:translateY(-2px)}
+
+/* 拍立得相册卡 */
+.pola{border-radius:20px;padding:16px 16px 20px;background:#fff;border:1px solid var(--line);box-shadow:0 30px 70px rgba(29,43,35,.16);transform:rotate(1.6deg);position:relative}
+.pola::before{content:"青青电影网";position:absolute;top:-13px;left:22px;background:var(--lime);color:var(--ink);font-size:10px;font-weight:850;letter-spacing:2px;padding:3px 12px;border-radius:20px}
+.pola .shots{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pola .sh{aspect-ratio:3/4;border-radius:10px;display:grid;place-items:center;font-family:var(--serif);font-size:30px;font-weight:950;color:#fff;position:relative;overflow:hidden}
+.pola .sh small{position:absolute;left:8px;bottom:6px;font-size:9.5px;letter-spacing:1px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.4)}
+.pola .cap{margin-top:14px;text-align:center;font-family:var(--serif);font-size:17px;font-weight:950;color:var(--green2)}
+.pola .cap span{display:block;font-size:11px;color:var(--dim);font-weight:600;letter-spacing:2px;margin-top:3px}
+
+/* ---------- Search ---------- */
+.sbar{margin-top:-46px;position:relative;z-index:6}
+.sin{display:flex;gap:0;background:#fff;border:2px solid var(--ink);border-radius:16px;overflow:hidden;box-shadow:0 18px 40px rgba(29,43,35,.14)}
+.sin:focus-within{border-color:var(--green);box-shadow:0 0 0 5px rgba(47,158,91,.16)}
+.sin input{flex:1;background:transparent;border:0;color:var(--ink);font-size:15px;padding:14px 18px;outline:none;min-width:0}
+.sin input::placeholder{color:var(--mute)}
+.sin button{border:0;background:var(--ink);color:var(--paper);font-weight:850;padding:13px 36px;cursor:pointer;font-size:15px;letter-spacing:2px;transition:.26s}
+.sin button:hover{background:var(--grad)}
+
+/* ============ 栏目一：电影 —— 横向滑动拍立得卡 ============ */
+.ts{display:flex;gap:20px;overflow-x:auto;padding:8px 2px 20px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.ts::-webkit-scrollbar{height:10px}
+.ts::-webkit-scrollbar-thumb{background:linear-gradient(90deg,var(--green),var(--teal));border-radius:10px}
+.ts .flm{flex:0 0 clamp(218px,24vw,250px);scroll-snap-align:start;background:#fff;border:8px solid #fff;border-bottom-width:22px;border-radius:6px;box-shadow:0 14px 30px rgba(29,43,35,.16);transition:.34s;cursor:pointer;position:relative}
+.ts .flm:nth-child(even){transform:rotate(-2.4deg)}
+.ts .flm:nth-child(odd){transform:rotate(2.2deg)}
+.ts .flm:hover{transform:rotate(0) translateY(-10px) scale(1.02);box-shadow:0 28px 54px rgba(29,43,35,.24);z-index:3}
+.ts .flm .cv{aspect-ratio:3/4;display:grid;place-items:center;font-family:var(--serif);font-size:44px;font-weight:950;color:#fff;position:relative}
+.ts .flm .cv .tg{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.92);color:var(--green2);font-size:10px;font-weight:850;letter-spacing:1px;padding:4px 10px;border-radius:20px}
+.ts .flm .bd{position:absolute;left:0;right:0;bottom:-22px;height:22px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:11px;color:var(--ink2)}
+.ts .flm .bd .dot{width:6px;height:6px;border-radius:50%;background:var(--line2)}
+
+/* ============ 栏目二：类型 —— 阶梯进度条 ============ */
+.bars{display:grid;gap:14px}
+.bar{display:grid;grid-template-columns:104px 1fr 74px;align-items:center;gap:14px;cursor:pointer;transition:.26s}
+.bar:hover{transform:translateX(5px)}
+.bar .nm{font-size:14px;font-weight:800;text-align:right;color:var(--ink2)}
+.bar .tr{height:20px;background:var(--paper2);border-radius:20px;overflow:hidden;border:1px solid var(--line)}
+.bar .fl{height:100%;border-radius:20px;background:var(--grad);transform-origin:left;transition:.7s cubic-bezier(.2,.8,.2,1)}
+.bar:hover .fl{filter:brightness(1.08)}
+.bar .ct{font-size:12.5px;color:var(--dim);font-variant-numeric:tabular-nums}
+.bar .ct b{color:var(--green2)}
+
+/* ============ 栏目三：台词 —— 手翻卡片 ============ */
+.flip{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;perspective:1200px}
+.card{height:200px;position:relative;cursor:pointer}
+.card .in{position:absolute;inset:0;transform-style:preserve-3d;transition:.7s}
+.card.f .in{transform:rotateY(180deg)}
+.card .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--r);padding:24px;display:flex;flex-direction:column;justify-content:center}
+.card .fr{background:var(--grad);color:#fff}
+.card .fr q{font-family:var(--serif);font-size:19px;line-height:1.6;font-weight:700;quotes:"“" "”"}
+.card .fr .hm{margin-top:14px;font-size:11px;letter-spacing:2px;opacity:.9}
+.card .bk{background:var(--ink);color:var(--paper2);transform:rotateY(180deg)}
+.card .bk h4{font-family:var(--serif);font-size:17px;color:#fff;margin-bottom:8px}
+.card .bk p{font-size:12.5px;line-height:1.75;opacity:.9}
+.card .bk .src{margin-top:auto;font-size:11px;color:var(--lime);letter-spacing:1px}
+
+/* ============ 栏目四：片单 —— 时间线列表 ============ */
+.tl{position:relative;padding-left:34px}
+.tl::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:3px;background:linear-gradient(var(--green),var(--blue));border-radius:3px}
+.tl .it{position:relative;padding:16px 20px;border-radius:16px;background:#fff;border:1px solid var(--line);margin-bottom:14px;transition:.28s;cursor:pointer}
+.tl .it:hover{border-color:var(--green);box-shadow:0 14px 30px rgba(29,43,35,.12);transform:translateX(6px)}
+.tl .it::before{content:"";position:absolute;left:-31px;top:24px;width:15px;height:15px;border-radius:50%;background:var(--paper);border:4px solid var(--green)}
+.tl .it .yr{font-family:var(--serif);font-size:12px;font-weight:850;color:var(--green2);letter-spacing:1px}
+.tl .it h4{font-size:17px;font-weight:900;font-family:var(--serif);margin:2px 0 4px}
+.tl .it p{font-size:13px;color:var(--ink2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tl .it .mt{margin-top:9px;display:flex;gap:7px;flex-wrap:wrap}
+.tl .it .mt span{font-size:10.5px;color:var(--teal);background:#e0f4f1;border-radius:20px;padding:3px 10px}
+
+/* ============ 栏目五：影评 —— 杂志主次卡 ============ */
+.mag{display:grid;grid-template-columns:1.5fr 1fr;gap:22px}
+.mag .lead{grid-row:span 2;border-radius:var(--r);padding:26px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;min-height:380px;transition:.34s;cursor:pointer;position:relative;overflow:hidden}
+.mag .lead::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(10,24,16,.86))}
+.mag .lead:hover{transform:translateY(-7px);box-shadow:0 28px 56px rgba(29,43,35,.26)}
+.mag .lead .in{position:relative;z-index:2}
+.mag .lead .cat{font-size:10.5px;letter-spacing:3px;font-weight:850;color:var(--lime)}
+.mag .lead h3{font-family:var(--serif);font-size:27px;font-weight:950;line-height:1.35;margin:9px 0}
+.mag .lead p{font-size:13.5px;opacity:.95;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.mag .mn{display:grid;grid-template-columns:82px 1fr;gap:14px;align-items:center;border-radius:16px;padding:13px;border:1px solid var(--line);background:#fff;transition:.28s;cursor:pointer}
+.mag .mn:hover{border-color:var(--green);box-shadow:0 14px 30px rgba(29,43,35,.12);transform:translateX(5px)}
+.mag .mn .th{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:24px;font-weight:950;color:#fff}
+.mag .mn h4{font-size:15px;font-weight:850;font-family:var(--serif);line-height:1.4}
+.mag .mn small{font-size:11px;color:var(--dim)}
+
+/* ---------- CTA ---------- */
+.cta{text-align:center;padding:64px 28px;border-radius:30px;border:1px solid var(--line);background:
+  radial-gradient(600px 260px at 50% -30%,rgba(47,158,91,.16),transparent 60%),
+  linear-gradient(160deg,#fff,#e6f4ea);margin:20px 0 40px;box-shadow:0 26px 60px rgba(29,43,35,.13)}
+.cta h2{font-family:var(--serif);font-size:clamp(26px,4.2vw,42px);font-weight:950;margin-bottom:14px;color:var(--green2)}
+.cta p{color:var(--ink2);max-width:640px;margin:0 auto 26px;font-size:15px}
+
+/* ---------- Footer ---------- */
+.ftr{background:linear-gradient(160deg,#16241d,#27402f);color:var(--dim);padding:62px 0 26px;margin-top:40px}
+.ftr .wrap{color:var(--dim)}
+.fg{display:grid;grid-template-columns:1.7fr repeat(3,1fr);gap:30px;margin-bottom:36px}
+.fb .logo{color:#fff}
+.fb .logo em{color:var(--green)}
+.fb p{font-size:13px;margin-top:14px;max-width:320px;line-height:1.95;color:#b3c4ba}
+.fc h5{font-size:15px;margin-bottom:14px;color:#fff;letter-spacing:1px;font-family:var(--serif)}
+.fc a{display:block;font-size:13px;padding:5px 0}
+.fc a:hover{color:var(--green);transform:translateX(4px)}
+.fbttm{text-align:center;font-size:12px;border-top:1px solid rgba(255,255,255,.12);padding-top:22px;line-height:2}
+.fbttm a{color:#b3c4ba}
+.fbttm a:hover{color:var(--green)}
+
+.top{position:fixed;right:20px;bottom:24px;width:50px;height:50px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-size:19px;cursor:pointer;box-shadow:0 10px 24px rgba(47,158,91,.4);opacity:0;pointer-events:none;transition:.3s;z-index:99;border:0}
+.top.show{opacity:1;pointer-events:auto}
+
+@media(max-width:960px){.hero .wrap{grid-template-columns:1fr}}
+@media(max-width:680px){
+  section{padding:56px 0}
+  .wrap{padding:0 16px}
+  .mbtn{display:grid;place-items:center}
+  .nav{position:fixed;inset:74px 0 0 100%;flex-direction:column;background:rgba(244,251,246,.99);padding:22px;border-top:1px solid var(--line);transition:.35s;z-index:99}
+  .nav.open{inset:74px 0 0 0}
+  .nav a{font-size:16px;padding:15px;border-radius:12px;text-align:center}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .pola{transform:none}
+  .sec-t{font-size:24px}
+  .bar{grid-template-columns:78px 1fr 56px;font-size:12px}
+  .mag{grid-template-columns:1fr}
+  .mag .lead{grid-row:auto;min-height:250px}
+  .sin button{padding:13px 20px;font-size:14px}
+}
+@media print{.hd,.sbar,.top,.nav,.kw{display:none}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<!-- ================= HEADER ================= -->
+<header class="hd">
+  <div class="wrap hd-in">
+    <a class="logo" href="#top" aria-label="返回顶部"><span class="mk">青</span>青青电影网<em>YOUTH FILM</em></a>
+    <nav class="nav" id="nav" aria-label="主导航">
+      <a href="#home" class="on">首页</a>
+      <a href="#film">电影</a>
+      <a href="#genre">类型</a>
+      <a href="#quote">台词</a>
+      <a href="#list">片单</a>
+      <a href="#review">影评</a>
+      <a href="#about">关于</a>
+    </nav>
+    <button class="mbtn" id="mb" aria-label="菜单" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Youth Film · 青青电影网</div>
+      <h1>青青电影网<br>青春不是一段<b><i>年纪</i></b><br>是一种<b><i>勇气</i></b></h1>
+      <p class="lede">青青电影网，专注<b>青春电影</b>的赏析与片单推荐：教室里的午后、操场上的跑道、没说出口的喜欢、毕业那天的雨，和从此各奔东西的我们。我们不搬运资源，只为你挑出那些关于成长、友情与初恋的好电影。</p>
+      <div class="stats">
+        <div class="stat"><b>960+</b><span>青春影片</span></div>
+        <div class="stat"><b>7</b><span>成长议题</span></div>
+        <div class="stat"><b>288</b><span>经典台词</span></div>
+        <div class="stat"><b>每日</b><span>推荐更新</span></div>
+      </div>
+      <div class="acts">
+        <a class="b b-p" href="#film">开始选片</a>
+        <a class="b b-g" href="#list">毕业片单</a>
+      </div>
+      <div class="kw">
+        <a href="#film">青青电影网</a>
+        <a href="#film">青春电影</a>
+        <a href="#genre">校园电影</a>
+        <a href="#film">成长电影</a>
+        <a href="#film">初恋电影</a>
+        <a href="#quote">经典台词</a>
+        <a href="#list">毕业季片单</a>
+        <a href="#review">电影赏析</a>
+      </div>
+    </div>
+    <div class="pola" aria-hidden="false">
+      <div class="shots">
+        <div class="sh" style="background:linear-gradient(155deg,#5bbf7a,#2f9e5b)">校<small>教室</small></div>
+        <div class="sh" style="background:linear-gradient(155deg,#5fa8d3,#3a86c8)">跑<small>操场</small></div>
+        <div class="sh" style="background:linear-gradient(155deg,#f0c14b,#d8a02a)">夏<small>蝉鸣</small></div>
+        <div class="sh" style="background:linear-gradient(155deg,#e08a8a,#c25a5a)">信<small>纸条</small></div>
+      </div>
+      <div class="cap">毕业快乐<span>QING QING FILM · 2026</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEARCH ================= -->
+<div class="wrap sbar">
+  <div class="sin">
+    <input type="search" id="q" placeholder="搜索影片、台词或类型，例如：青青电影网 青春电影 毕业季片单" aria-label="搜索">
+    <button onclick="doSearch()">搜 索</button>
+  </div>
+</div>
+
+<!-- ================= 栏目一：电影（横向滑动拍立得卡） ================= -->
+<section id="film">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="sec-t">电影 · 青春片单<small>FILMS / 拍立得滑动卡</small></h2>
+      <a class="more" href="#">全部影片 →</a>
+    </div>
+    <div class="ts" id="ts"></div>
+  </div>
+</section>
+
+<!-- ================= 栏目二：类型（阶梯进度条） ================= -->
+<section id="genre" style="background:linear-gradient(180deg,transparent,rgba(47,158,91,.07))">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="sec-t">类型 · 青春的形状<small>GENRES / 阶梯进度条</small></h2>
+      <a class="more" href="#">查看全部 →</a>
+    </div>
+    <div class="bars" id="bars"></div>
+  </div>
+</section>
+
+<!-- ================= 栏目三：台词（手翻卡片） ================= -->
+<section id="quote">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="sec-t">台词 · 那年我们说过的<small>QUOTES / 3D 翻牌</small></h2>
+      <a class="more" href="#">台词大全 →</a>
+    </div>
+    <div class="flip" id="flip"></div>
+    <p style="text-align:center;font-size:12.5px;color:var(--dim);margin-top:16px">点击卡片，查看解读 →</p>
+  </div>
+</section>
+
+<!-- ================= 栏目四：片单（时间线） ================= -->
+<section id="list" style="background:linear-gradient(180deg,rgba(58,134,200,.06),transparent)">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="sec-t">片单 · 毕业季必看<small>LIST / 时间线</small></h2>
+      <a class="more" href="#">完整片单 →</a>
+    </div>
+    <div class="tl" id="tl"></div>
+  </div>
+</section>
+
+<!-- ================= 栏目五：影评（杂志主次卡） ================= -->
+<section id="review">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="sec-t">影评 · 读片笔记<small>REVIEWS / 杂志栅格</small></h2>
+      <a class="more" href="#">全部影评 →</a>
+    </div>
+    <div class="mag" id="mag"></div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h2>青青电影网，为每一段青春留一个座位</h2>
+      <p>校园、成长、初恋、友情、毕业与远方——青春有千万种样子，银幕替我们保存了那些以为会永远、其实已经走远的日子。青青电影网只做两件事：帮你找到值得看的那一部，并陪你读懂它。</p>
+      <a class="b b-p" href="#film">开始选片</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 栏目六：关于（页脚多列） ================= -->
+<footer class="ftr" id="about">
+  <div class="wrap">
+    <div class="fg">
+      <div class="fb">
+        <a class="logo" href="#top"><span class="mk">青</span>青青电影网<em>YOUTH FILM</em></a>
+        <p>青青电影网，专注青春电影的赏析与片单推荐：青春片、校园电影、成长电影、初恋与毕业季题材。提供高分片单、经典台词、类型分类与正版观影渠道指引，让好电影被看见。</p>
+      </div>
+      <div class="fc">
+        <h5>影片频道</h5>
+        <a href="#home">首页</a>
+        <a href="#film">电影</a>
+        <a href="#genre">类型</a>
+        <a href="#quote">台词</a>
+        <a href="#list">片单</a>
+        <a href="#review">影评</a>
+      </div>
+      <div class="fc">
+        <h5>青春议题</h5>
+        <a href="#">校园成长</a>
+        <a href="#">初恋暗恋</a>
+        <a href="#">友情离别</a>
+        <a href="#">家庭和解</a>
+        <a href="#">梦想远方</a>
+        <a href="#">毕业季</a>
+      </div>
+      <div class="fc">
+        <h5>关于本站</h5>
+        <a href="#">网站简介</a>
+        <a href="#">正版声明</a>
+        <a href="#">投稿合作</a>
+        <a href="#">免责声明</a>
+        <a href="#">友情链接</a>
+      </div>
+    </div>
+    <div class="fbttm">
+      <p>© <span id="yr"></span> 青青电影网（qingqingdianyingwang-cn）保留所有权利。</p>
+      <p style="margin-top:8px">网站网址：<a href="https://qingqingdianyingwang-cn.github.io" rel="noopener">https://qingqingdianyingwang-cn.github.io</a> ｜ 本页为演示模板，内页链接均以 # 占位。</p>
+      <p style="margin-top:8px">温馨提示：请通过正规渠道观看正版影视内容，支持创作者，遵守当地法律法规。</p>
+    </div>
+  </div>
+</footer>
+
+<button class="top" id="top" aria-label="返回顶部">↑</button>
+
+<script>
+/* ============ 数据 ============ */
+var FILMS=[
+  {t:"少年派的奇幻漂流",g:"成长 · 奇幻",bg:"linear-gradient(155deg,#7ecf9a,#2f9e5b)"},
+  {t:"放牛班的春天",g:"校园 · 音乐",bg:"linear-gradient(155deg,#bcd9e8,#6fa3c0)"},
+  {t:"死亡诗社",g:"教育 · 反叛",bg:"linear-gradient(155deg,#c9b48a,#8a6f3a)"},
+  {t:"心灵奇旅",g:"梦想 · 治愈",bg:"linear-gradient(155deg,#f0c14b,#d8a02a)"},
+  {t:"你的名字。",g:"奇幻 · 相遇",bg:"linear-gradient(155deg,#e8a0c0,#c26a8a)"},
+  {t:"侧耳倾听",g:"青春 · 追逐",bg:"linear-gradient(155deg,#a0d2c0,#5a9a7a)"},
+  {t:"阳光灿烂的日子",g:"回忆 · 成长",bg:"linear-gradient(155deg,#e0b06a,#a86a2a)"},
+  {t:"绿皮书",g:"公路 · 友情",bg:"linear-gradient(155deg,#8abf9a,#3a7a4a)"},
+  {t:"摔跤吧！爸爸",g:"家庭 · 梦想",bg:"linear-gradient(155deg,#d9a05a,#a66a2a)"},
+  {t:"千与千寻",g:"成长 · 奇幻",bg:"linear-gradient(155deg,#a0cfe0,#5a8aa0)"}
+];
+var GENRES=[
+  {n:"校园成长",c:18,max:24},
+  {n:"初恋暗恋",c:16,max:24},
+  {n:"友情离别",c:14,max:24},
+  {n:"家庭和解",c:11,max:24},
+  {n:"梦想远方",c:15,max:24},
+  {n:"毕业季",c:9,max:24},
+  {n:"青春疼痛",c:12,max:24},
+  {n:"治愈动画",c:17,max:24}
+];
+var QUOTES=[
+  {q:"及时行乐，孩子们，让你的生命超越平凡。",w:"《死亡诗社》 Keating",p:"青春最珍贵的不是答案，而是敢于提问的那口气。"},
+  {q:"每一个不曾起舞的日子，都是对生命的辜负。",w:"《死亡诗社》",p:"把这句话写在课本扉页的人，后来都去了哪里。"},
+  {q:"我闭眼，是为了看清自己。",w:"《少年派的奇幻漂流》",p:"成长，是一场与自己的海上漂流。"},
+  {q:"不是为了某个目的而活，而是为了活着的每一秒。",w:"《心灵奇旅》",p:"青春的意义，藏在放学路上的那阵风里。"},
+  {q:"名字一旦被忘记，就真的消失了。",w:"《千与千寻》",p:"别弄丢自己的名字，也别弄丢喜欢过的人。"},
+  {q:"从现在起，我会拼尽全力去奔跑。",w:"《你的名字。》",p:"哪怕不记得你的名字，我也会在人群里找到你。"},
+  {q:"音乐能让最坏的男孩，变成最好的自己。",w:"《放牛班的春天》",p:"教育不是填满，而是点燃。"},
+  {q:"青春不是一段年纪，是一种勇气。",w:"青青电影网 · 读片笔记",p:"长大以后，我们最怀念的，是那份敢输的胆量。"}
+];
+var LIST=[
+  {yr:"2024",t:"《蓦然回首》",m:["青春","漫画","重逢"],d:"把“再见”画成一整本漫画，是青春最体面的告别方式。"},
+  {yr:"2023",t:"《青春18×2 通往有你的旅程》",m:["旅行","初恋","台湾"],d:"18 岁的车票，我们到底有没有勇气去兑现。"},
+  {yr:"2019",t:"《你的名字。》",m:["奇幻","相遇","新海诚"],d:"把思念编成结绳，系在手腕上，就不会走散。"},
+  {yr:"2016",t:"《你的名字。》之前 —— 《言叶之庭》",m:["雨天","师徒","暧昧"],d:"还没有长大的喜欢，像一场下不完的雨。"},
+  {yr:"2014",t:"《少年派的奇幻漂流》",m:["奇幻","信仰","成长"],d:"同一个故事，大人看到生存，少年看到告别。"},
+  {yr:"1995",t:"《阳光灿烂的日子》",m:["回忆","北京","成长"],d:"记忆会替我们把青春修饰得更亮，也更疼。"}
+];
+var REVIEWS=[
+  {lead:true,t:"为什么毕业季，我们总会重看《放牛班的春天》",bg:"linear-gradient(150deg,rgba(40,70,50,.35),rgba(10,24,16,.92)),linear-gradient(155deg,#5fa8d3,#3a86c8)",cat:"封面专题",p:"它不是一部关于“坏孩子”的电影，而是一部关于“被听见”的电影。马修老师给每个孩子写的那段旋律，其实就是青春期最朴素的心愿：我希望有人认真听我唱完这一句。",th:null,n:null},
+  {lead:false,t:"《死亡诗社》：站到桌子上，看看不一样的世界",bg:"linear-gradient(155deg,#c9b48a,#8a6f3a)",th:"诗",n:"教育不是填满，而是点燃",c:"校园"},
+  {lead:false,t:"《少年派》：青春是一场与自己的海上漂流",bg:"linear-gradient(155deg,#7ecf9a,#2f9e5b)",th:"海",n:"我们到底在害怕什么",c:"成长"},
+  {lead:false,t:"《你的名字。》：即使忘了名字，也会找到你",bg:"linear-gradient(155deg,#e8a0c0,#c26a8a)",th:"结",n:"把思念系在手腕上",c:"初恋"},
+  {lead:false,t:"《心灵奇旅》：平凡的一天，也可以是火花",bg:"linear-gradient(155deg,#f0c14b,#d8a02a)",th:"光",n:"活着，不是为了某个目的",c:"治愈"}
+];
+
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+function renderFilms(){
+  var h="",i;
+  for(i=0;i<FILMS.length;i++){
+    var f=FILMS[i];
+    h+='<article class="flm"><div class="cv" style="background:'+f.bg+'"><span class="tg">'+f.g.split(" · ")[0]+'</span>'+f.t.charAt(0)+'</div><div class="bd"><span>'+f.t+'</span><i class="dot"></i><span>'+f.g+'</span></div></article>';
+  }
+  document.getElementById("ts").innerHTML=h;
+}
+function renderGenres(){
+  var h="",i;
+  for(i=0;i<GENRES.length;i++){
+    var g=GENRES[i], w=Math.round(g.c/g.max*100);
+    h+='<div class="bar"><span class="nm">'+g.n+'</span><span class="tr"><i class="fl" data-w="'+w+'" style="width:0;background:linear-gradient(90deg,'+['#2f9e5b','#159a8a','#3a86c8','#d8d83a','#e0a0c0','#c25a5a','#8a6f3a','#5a9a7a'][i%8]+', '+g.c+')"></i></span><span class="ct"><b>'+g.c+'</b> 部</span></div>';
+  }
+  document.getElementById("bars").innerHTML=h;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var el=e.target;el.style.width=el.dataset.w+"%";io.unobserve(el);}});},{threshold:.3});
+  document.querySelectorAll(".fl").forEach(function(el){io.observe(el);});
+}
+function renderQuotes(){
+  var h="",i;
+  for(i=0;i<QUOTES.length;i++){
+    var q=QUOTES[i];
+    h+='<div class="card" onclick="this.classList.toggle(\'f\')"><div class="in"><div class="face fr"><q>'+q.q+'</q><span class="hm">—— '+q.w+'</span></div><div class="face bk"><h4>解读</h4><p>'+q.p+'</p><span class="src">青青电影网 · 读片笔记</span></div></div></div>';
+  }
+  document.getElementById("flip").innerHTML=h;
+}
+function renderList(){
+  var h="",i;
+  for(i=0;i<LIST.length;i++){
+    var l=LIST[i], ms="";
+    for(var j=0;j<l.m.length;j++) ms+='<span>'+l.m[j]+'</span>';
+    h+='<article class="it"><div class="yr">'+l.yr+'</div><h4>'+l.t+'</h4><p>'+l.d+'</p><div class="mt">'+ms+'</div></article>';
+  }
+  document.getElementById("tl").innerHTML=h;
+}
+function renderReviews(){
+  var h="",i;
+  for(i=0;i<REVIEWS.length;i++){
+    var m=REVIEWS[i];
+    if(m.lead){
+      h+='<article class="lead" style="background:'+m.bg+'"><div class="in"><span class="cat">'+m.cat+'</span><h3>'+m.t+'</h3><p>'+m.p+'</p></div></article>';
+    }else{
+      h+='<a class="mn" href="#"><div class="th" style="background:'+m.bg+'">'+m.th+'</div><div><span class="pill" style="font-size:10.5px;color:#159a8a;background:#e0f4f1;border-radius:20px;padding:3px 10px">'+m.c+'</span><h4>'+m.t+'</h4><small>'+m.n+'</small></div></a>';
+    }
+  }
+  document.getElementById("mag").innerHTML=h;
+}
+function doSearch(){
+  var q=document.getElementById("q").value.trim();
+  if(q) alert("演示站点：搜索 「"+q+"」，内页链接以 # 占位。");
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+  renderFilms();renderGenres();renderQuotes();renderList();renderReviews();
+  document.getElementById("yr").textContent=new Date().getFullYear();
+
+  var mb=document.getElementById("mb"), nav=document.getElementById("nav");
+  mb.addEventListener("click",function(){
+    nav.classList.toggle("open");
+    var o=nav.classList.contains("open");
+    mb.textContent=o?"✕":"☰";
+    mb.setAttribute("aria-expanded",o?"true":"false");
+  });
+  var as=nav.querySelectorAll("a");
+  for(var a=0;a<as.length;a++){
+    as[a].addEventListener("click",function(){nav.classList.remove("open");mb.textContent="☰";mb.setAttribute("aria-expanded","false");});
+  }
+
+  var secs=document.querySelectorAll("section[id]"), items=document.querySelectorAll(".nav a"), tt=document.getElementById("top");
+  function onScroll(){
+    var pos=window.scrollY+170, cur="";
+    for(var s=0;s<secs.length;s++){ if(secs[s].offsetTop<=pos) cur=secs[s].id; }
+    for(var n=0;n<items.length;n++){ items[n].classList.toggle("on", items[n].getAttribute("href")==="#"+cur); }
+    tt.classList.toggle("show", window.scrollY>700);
+  }
+  window.addEventListener("scroll",onScroll,{passive:true});
+  onScroll();
+  tt.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});
+  document.getElementById("q").addEventListener("keydown",function(e){if(e.key==="Enter") doSearch();});
+});
+</script>
+</body>
+</html>
